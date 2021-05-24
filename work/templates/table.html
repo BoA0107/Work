@@ -7,40 +7,67 @@
 <body>
 
 <div id="plan_table">
-<h3>发布计划</h3>
-<table border="1" cellspacing="0" cellpadding="0">
-    {% for i in range(plan_info|length) %}
-        {% if i==0 %}
-            <tr>
-                {% for j in range(plan_info[i]|length) %}
-                    <th>{{ plan_info[i][j] }}</th>
-                {% endfor %}
-            </tr>
-        {% elif i%2==1 %}
-            <tr>
-                {% for j in range(plan_info[i]|length) %}
-                    {% if  j!=5 %}
-                        <td rowspan="2">{{ plan_info[i][j] }}</td>
-                    {% else %}
-                        <td>{{ plan_info[i][j] }}</td>
-                    {% endif %}
-                {% endfor %}
-            </tr>
-        {% else %}
-            </tr>
-            {% for j in range(plan_info[i]|length) %}
-                {% if  j!=5 %}
-                {% else %}
-                    <td>{{ plan_info[i][j] }}</td>
-                {% endif %}
-            {% endfor %}
-            </tr>
-        {% endif %}
-    {% endfor %}
-</table>
+    <h3>发布计划</h3>
+    <table border="1" cellspacing="0" cellpadding="5">
+        {% for i in range(plan_info|length) %}
+            {% if i==0 %}
+                <tr>
+                    {% for j in range(plan_info[i]|length) %}
+                        <th>{{ plan_info[i][j] }}</th>
+                    {% endfor %}
+                </tr>
+            {% elif i%2==1 %}
+                <tr>
+                    {% for j in range(plan_info[i]|length) %}
+                        {% if  j!=5 %}
+                            <td rowspan="2">{{ plan_info[i][j] }}</td>
+                        {% else %}
+                            <td>{{ plan_info[i][j] }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% else %}
+                <tr>
+                    {% for j in range(plan_info[i]|length) %}
+                        {% if  j!=5 %}
+                        {% else %}
+                            <td>{{ plan_info[i][j] }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
 </div>
 
 <hr>
+
+<div id="BC_table">
+    <h3>BC信息</h3>
+    <table border="1" cellspacing="0" cellpadding="5">
+        {% for i in range(BC_info|length) %}
+            {% if i==0 %}
+                <tr>
+                    {% for j in range(BC_info[i]|length) %}
+                        <th>{{ BC_info[i][j] }}</th>
+                    {% endfor %}
+                </tr>
+            {% else %}
+                <tr>
+                    {% for j in range(BC_info[i]|length) %}
+                        <td>{{ BC_info[i][j] }}</td>
+                    {% endfor %}
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</div>
+
+<hr>
+
+<div id="links">
+    <h3>常用links</h3>
+</div>
 
 
 </body>
