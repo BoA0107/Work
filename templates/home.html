@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+{% block left %}
+    <ul>
+        <li><a href="#release_plan">发布计划</a></li>
+        <li><a href="#links">常用链接</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+{% endblock %}
+
+{% block right %}
+    <div style="margin-left: 50px">
+        <h3 id="release_plan">发布计划</h3>
+        <table border="1" cellpadding="5" cellspacing="0" >
+            {% for i in range(0,(release|length)) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(0,(release[i]|length)) %}
+                            <th class="a">{{ release[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% elif i%2==1 %}
+                    <tr>
+                        {% for j in range(0,(release[i]|length)) %}
+                            {% if j==5 %}
+                                <td>{{ release[i][j] }}</td>
+                            {% else %}
+                                <td rowspan="2">{{ release[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(0,(release[i]|length)) %}
+                            {% if j==5 %}
+                                <td>{{ release[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+    <hr>
+
+    <div style="margin-left: 50px">
+        <h3 id="links">常用链接</h3>
+        {% for i in dd %}
+            <div style="float: left;margin-left: 50px;width: {{wd}}%">
+                <h3>{{ i }}</h3>
+                {% for j in dd[i] %}
+                    <a href="{{ dd[i][j] }}"  target="_blank">{{ j }}</a><br>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
