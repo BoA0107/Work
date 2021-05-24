@@ -39,7 +39,7 @@ def make_dct(lst):
     dct = {}
     for i in range(len(lst)):
         x, y = lst[i]
-        if y == None:
+        if (y == None) and (x != None):
             key = x
             dct[key] = {}
             for j in range(i + 1, len(lst)):
