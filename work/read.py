@@ -22,14 +22,30 @@ def read_doc(filename, sheetname, max_line=0):
         for j in range(1, y + 1):
             c.append(sheet.cell(1, j).value)
         content.append(c)
-        for i in range(x +1 - max_line, x+1):
+        for i in range(x + 1 - max_line, x + 1):
             c = []
             for j in range(1, y + 1):
                 c.append(sheet.cell(i, j).value)
             content.append(c)
     return content
 
+    # plan_info = read_doc(filename=r"doc/release.xlsx", sheetname="plan", max_line=8)
+    #
+    # print(plan_info)
 
-# plan_info = read_doc(filename=r"doc/release.xlsx", sheetname="plan", max_line=8)
-#
-# print(plan_info)
+
+# make dct
+def make_dct(lst):
+    dct = {}
+    for i in range(len(lst)):
+        x, y = lst[i]
+        if y == None:
+            key = x
+            dct[key] = {}
+            for j in range(i + 1, len(lst)):
+                x, y = lst[j]
+                if y != None:
+                    dct[key][x] = y
+                else:
+                    break
+    return dct

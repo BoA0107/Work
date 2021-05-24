@@ -20,8 +20,10 @@ def talbe():
     BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
 
     # links
-    links = read_doc(filename=filename, sheetname=sheet_BCA)
-    return render_template("table.html", plan_info=plan_info, BC_info=BC_info, links=links)
+    links = read_doc(filename=filename, sheetname=sheet_links)
+    links_dct=make_dct(links)
+
+    return render_template("table.html", plan_info=plan_info, BC_info=BC_info, links=links_dct)
 
 
 if __name__ == "__main__":

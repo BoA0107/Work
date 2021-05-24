@@ -65,8 +65,17 @@
 
 <hr>
 
-<div id="links">
-    <h3>常用links</h3>
+<div style="margin-left: 50px">
+    <h3 id="links">常用链接</h3>
+    {% for i in links %}
+        <div style="float: left;margin-left: 50px;width: {{ wd }}%">
+            <h3>{{ i }}</h3>
+            {% for j in links[i] %}
+                <a href="{{ links[i][j] }}" target="_blank">{{ j }}</a><br>
+            {% endfor %}
+        </div>
+    {% endfor %}
+
 </div>
 
 
