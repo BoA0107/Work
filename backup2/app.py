@@ -16,23 +16,14 @@ def base():
     return render_template('base.html')
 
 
-@app.route('/')
+@app.route('/home')
 def home():
-    # 发布计划
-    plan_info = read_doc(filename=filename, sheetname=sheet_plan, max_line=8)
-
-    # links
-    links = read_doc(filename=filename, sheetname=sheet_links)
-    links_dct = make_dct(links)
-
-    return render_template("home.html", plan_info=plan_info, links=links_dct)
+    return render_template('home.html')
 
 
 @app.route('/BCA')
 def BCA():
-    # BC
-    BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
-    return render_template('BCA.html',BC_info=BC_info)
+    return render_template('BCA.html')
 
 
 @app.route('/CAM')
@@ -66,4 +57,4 @@ def talbe():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5002)
