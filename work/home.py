@@ -25,8 +25,7 @@ def home():
     links = read_doc(filename=filename, sheetname=sheet_links)
     links_dct = make_dct(links)
 
-    return render_template("home.html", plan_info=plan_info,  links=links_dct)
-
+    return render_template("home.html", plan_info=plan_info, links=links_dct)
 
 
 @app.route('/BCA')

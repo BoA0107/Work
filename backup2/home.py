@@ -16,9 +16,16 @@ def base():
     return render_template('base.html')
 
 
-@app.route('/home')
+@app.route('/')
 def home():
-    return render_template('home.html')
+    # 发布计划
+    plan_info = read_doc(filename=filename, sheetname=sheet_plan, max_line=8)
+
+    # links
+    links = read_doc(filename=filename, sheetname=sheet_links)
+    links_dct = make_dct(links)
+
+    return render_template("home.html", plan_info=plan_info, links=links_dct)
 
 
 @app.route('/BCA')
