@@ -1,10 +1,61 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-hello world
+
+<table border="1" cellpadding="0" cellspacing="0">
+    {% for i in range(0,(x|length)) %}
+        <tr>
+            {% if i==0 %}
+                {% for j in range(0,(x[i]|length)) %}
+                    <th>{{ x[i][j] }}</th>
+                {% endfor %}
+                </tr>
+            {% else %}
+                {% for j in range(0,(x[i]|length)) %}
+                    {% if i%2==0 %}
+                        {% if j==5 %}
+                            <td>{{ x[i][j] }}</td>
+                        {% else %}
+                            <td></td>
+                            </tr>
+                        {% endif %}
+                    {% else %}
+                        {% if j!=5 %}
+                            <td rowspan="2">{{ x[i][j] }}</td>
+                        {% else %}
+                            <tr>{{ x[i][j] }}</tr>
+                        {% endif %}
+                    </tr>
+                    {% endif %}
+
+                {% endfor %}
+
+            {% endif %}
+    {% endfor %}
+</table>
+
+
+<!--<table border="1" cellpadding="0" cellspacing="0">-->
+<!--    {%for i in range(0,(x|length))%}-->
+    <!--    <tr>-->
+    <!--    {%if i==0%}-->
+        <!--            {%for j in range(0,(x[i]|length))%}-->
+            <!--            <th>{{x[i][j]}}</th>-->
+            <!--            {%endfor%}-->
+        <!--    </tr>-->
+        <!--    {%else%}-->
+        <!--            {%for j in range(0,(x[i]|length))%}-->
+            <!--            <td>{{x[i][j]}}</td>-->
+            <!--            {%endfor%}-->
+        <!--    {%endif%}-->
+    <!--    </tr>-->
+    <!--    {%endfor%}-->
+<!--</table>-->
+
+
 </body>
 </html>

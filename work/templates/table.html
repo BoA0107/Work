@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+</head>
+<body>
+
+<div id="plan_table">
+<h3>发布计划</h3>
+<table border="1" cellspacing="0" cellpadding="0">
+    {% for i in range(plan_info|length) %}
+        {% if i==0 %}
+            <tr>
+                {% for j in range(plan_info[i]|length) %}
+                    <th>{{ plan_info[i][j] }}</th>
+                {% endfor %}
+            </tr>
+        {% elif i%2==1 %}
+            <tr>
+                {% for j in range(plan_info[i]|length) %}
+                    {% if  j!=5 %}
+                        <td rowspan="2">{{ plan_info[i][j] }}</td>
+                    {% else %}
+                        <td>{{ plan_info[i][j] }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% else %}
+            </tr>
+            {% for j in range(plan_info[i]|length) %}
+                {% if  j!=5 %}
+                {% else %}
+                    <td>{{ plan_info[i][j] }}</td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+</div>
+
+<hr>
+
+
+</body>
+</html>

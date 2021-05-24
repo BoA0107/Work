@@ -22,7 +22,7 @@ def read_doc(filename, sheetname, max_line=0):
         for j in range(1, y + 1):
             c.append(sheet.cell(1, j).value)
         content.append(c)
-        for i in range(x - 7, x):
+        for i in range(x +1 - max_line, x+1):
             c = []
             for j in range(1, y + 1):
                 c.append(sheet.cell(i, j).value)
@@ -30,3 +30,6 @@ def read_doc(filename, sheetname, max_line=0):
     return content
 
 
+# plan_info = read_doc(filename=r"doc/release.xlsx", sheetname="plan", max_line=8)
+#
+# print(plan_info)
