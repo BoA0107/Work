@@ -2,6 +2,8 @@
 
 from flask import *
 from read import *
+import base64
+from openpyxl import *
 
 app = Flask(__name__)
 
@@ -9,6 +11,7 @@ filename = r"doc/release.xlsx"
 sheet_BCA = "BCA"
 sheet_plan = "plan"
 sheet_links = "links"
+
 
 
 @app.route('/base')
@@ -37,7 +40,7 @@ def BCA():
 
 @app.route('/CAM')
 def CAM():
-    img_01='static/BCA_01.png'
+    img_01 = 'static/BCA_01.png'
     return render_template('CAM.html', img_01=img_01)
 
 
