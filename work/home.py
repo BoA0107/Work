@@ -40,7 +40,6 @@ def BCA():
 
 @app.route('/CAM')
 def CAM():
-
     return render_template('CAM.html')
 
 
