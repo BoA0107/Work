@@ -32,13 +32,13 @@ def home():
 def BCA():
     # BC
     BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
-    return render_template('BCA.html',BC_info=BC_info)
+    return render_template('BCA.html', BC_info=BC_info)
 
 
 @app.route('/CAM')
 def CAM():
-    BCA_01 = 'img/BCA_01.png'
-    return render_template('CAM.html' , BCA_01=BCA_01)
+    img_01='static/BCA_01.png'
+    return render_template('CAM.html', img_01=img_01)
 
 
 @app.route('/deploy')
