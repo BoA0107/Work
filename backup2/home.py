@@ -2,6 +2,8 @@
 
 from flask import *
 from read import *
+import base64
+from openpyxl import *
 
 app = Flask(__name__)
 
@@ -9,6 +11,7 @@ filename = r"doc/release.xlsx"
 sheet_BCA = "BCA"
 sheet_plan = "plan"
 sheet_links = "links"
+
 
 
 @app.route('/base')
@@ -32,7 +35,7 @@ def home():
 def BCA():
     # BC
     BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
-    return render_template('BCA.html',BC_info=BC_info)
+    return render_template('BCA.html', BC_info=BC_info)
 
 
 @app.route('/CAM')
