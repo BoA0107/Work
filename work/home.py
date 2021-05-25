@@ -40,8 +40,8 @@ def BCA():
 
 @app.route('/CAM')
 def CAM():
-    img_01 = 'static/BCA_01.png'
-    return render_template('CAM.html', img_01=img_01)
+
+    return render_template('CAM.html')
 
 
 @app.route('/deploy')
