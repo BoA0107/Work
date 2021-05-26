@@ -7,6 +7,16 @@
 
 
     <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: skyblue;
+            text-decoration: none;
+        }
+
         #head {
             position: fixed;
             top: 0px;
@@ -52,14 +62,16 @@
             list-style: None;
         }
 
-        #right
-        {float:left;
-        margin-left: 10%;
-        margin-top:100px}
-        
-        
+        #right {
+            float: left;
+            margin-left: 10%;
+            margin-top: 100px;
+            width: 90%
+        }
+
+
         {% block style %}
-        
+
         {% endblock %}
     </style>
 </head>
@@ -69,8 +81,8 @@
 <div id="head">
 
     <ul>
-        <li>Home</li>
-        <li>BCA</li>
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('BCA') }}">BCA</a></li>
         <li>Deploy</li>
         <li>CAM</li>
         <li>SQL</li>

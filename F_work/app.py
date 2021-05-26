@@ -22,4 +22,8 @@ def home():
     return render_template("home.html", plan_info=plan_info, links=links_dct)
 
 
+
+@app.route('/BCA')
+def BCA():
+    return render_template("BCA.html")
 app.run(debug=True)
