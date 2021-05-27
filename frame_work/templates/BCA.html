@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block left %}
+    <ul id='index'>
+        <li><a href="#BC_Create">测试账号</a></li>
+        <ol>
+            <li><a href="#查找BC">查找BC</a></li>
+            <li><a href="#核对执照">核对执照</a></li>
+            <li><a href="#终止合同">终止合同</a></li>
+            <li><a href="#调整渠道">调整渠道</a></li>
+            <li><a href="#调整职级">调整职级</a></li>
+            <li><a href="#新疆BC">新疆BC</a></li>
+        </ol>
+        <li><a href="#BC_info">BCA账号-UAT</a></li>
+
+
+    </ul>
+{% endblock %}
+
+
+{% block right %}
+    <div style="margin-left: 50px;">
+        <div id=" BC_Create">
+            <h3>BCA测试账号设置</h3>
+            <div id='查找BC'><h4>查找BC</h4></div>
+            SAM --> 高级搜索 --> 选择定 Activity Status 和 Career Level进行搜索<br>
+            <span style="color:red">推荐：1. Activity Status为A状态；2. Career Level 75-85</span><br>
+            <img src="{{ url_for('static',filename='BCA_01.png') }}" width=80%>
+            <div id='核对执照'><h4>核对执照</h4></div>
+            <div id='终止合同'><h4>终止合同</h4></div>
+            <div id='调整渠道'><h4>调整渠道</h4></div>
+            <div id='调整职级'><h4>调整职级</h4></div>
+            <div id='新疆BC'><h4>新疆BC</h4></div>
+        </div>
+
+        {#<div style="clear:both"></div>#}
+        <hr>
+
+
+        <div id="BC_info">
+            <h3>BC信息</h3>
+            <table border="1" cellspacing="0" cellpadding="5">
+                {% for i in range(BC_info|length) %}
+                    {% if i==0 %}
+                        <tr>
+                            {% for j in range(BC_info[i]|length) %}
+                                <th>{{ BC_info[i][j] }}</th>
+                            {% endfor %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            {% for j in range(BC_info[i]|length) %}
+                                <td>{{ BC_info[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
