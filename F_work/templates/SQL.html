@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+
+{% block left %}
+    <ul id='index'>
+        <li><a href="#MEbatch">ME batch</a></li>
+        <li><a href="#OrderPay">订单支付</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+{% endblock %}
+
+
+{% block right %}
+<div style="margin-left: 50px">
+<h3 id="MEbatch">ME batch</h3>
+<code>{{SQLDCT.MEBatch}}</code>
+<hr>
+
+<h3 id="OrderPay">订单支付</h3>
+<p>----拿Baset KU</p>
+<code>{{SQLDCT.OrderPay.BasketKU}}</code>
+<p>----拿cashpaymentID</p>
+<code>{{SQLDCT.OrderPay.cashpaymentID}}</code>
+<p>----假支付</p>
+<code>{{SQLDCT.OrderPay.fakePayment}}</code>
+
+<hr>
+
+</div>
+{% endblock %}
