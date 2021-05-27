@@ -2,6 +2,8 @@
 
 from flask import *
 from read import *
+from SQL_Dct import *
+
 
 filename = r"doc/release.xlsx"
 sheet_BCA = "BCA"
@@ -37,6 +39,12 @@ def BCA():
     # BC
     BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
     return render_template("BCA.html", BC_info=BC_info)
+
+
+@app.route('/SQL')
+def SQL():
+    SQLDCT = SQLD
+    return render_template("SQL.html", SQLDCT=SQLDCT)
 
 
 if __name__ == '__main__':
