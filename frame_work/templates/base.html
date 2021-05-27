@@ -6,27 +6,32 @@
     <title>{% block title %}
         title
     {% endblock %}}</title>
+
 </head>
 
 <style>
     {% block style %}
     {% endblock %}
 
-#left{
-    position: fixed;
-    top:0px;
-    lef:0px;
-    width: 15%;
-    float: left;
-}
+    a {
+        text-decoration: none;
+    }
 
-#right{
-    float: left;
-    margin-top: 0px;
-    margin-left: 15%;
-    background-color: aliceblue;
-    width: 85%;
-}
+    #left {
+        position: fixed;
+        top: 0px;
+        lef: 0px;
+        width: 15%;
+        float: left;
+    }
+
+    #right {
+        float: left;
+        margin-top: 0px;
+        margin-left: 15%;
+        background-color: aliceblue;
+        width: 85%;
+    }
 </style>
 
 <body>

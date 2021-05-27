@@ -4,7 +4,6 @@ from flask import *
 from read import *
 from SQL_Dct import *
 
-
 filename = r"doc/release.xlsx"
 sheet_BCA = "BCA"
 sheet_plan = "plan"
@@ -45,6 +44,11 @@ def BCA():
 def SQL():
     SQLDCT = SQLD
     return render_template("SQL.html", SQLDCT=SQLDCT)
+
+
+@app.route('/Deploy')
+def Deploy():
+    return render_template('Deploy.html')
 
 
 if __name__ == '__main__':

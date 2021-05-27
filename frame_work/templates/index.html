@@ -7,38 +7,37 @@
 
 
 <style>
-    index {
+
+    .nav {
         height: 70px;
+        line-height: 70px;
+        background-color: bisque;
+        border-top: 3px solid #ff8500;
+        border-bottom: 1px solid #edeef0;
     }
 
-    ul {
-        list-style: none;
-        height: 50px
+    .nav a {
+        display: inline-block;
+        height: 70px;
+        padding: 0 20px;
+        font-size: 20px;
+        color: #4c4c4c;
+        text-decoration: none;
     }
 
-    ul li {
-        float: left;
-        width: 100px;
-        text-align: center;
-        font-size: 18px;
-        height: 50px;
-        line-height: 50px;
+    .nav a:hover {
+        background-color: beige;
+        color: #ff8500;
     }
 
 </style>
-<body style="background-color: bisque">
 
-<div id="index">
-    <ul>
-        <li><a href="home" target="showframe">Home</a></li>
-        <li><a href="BCA" target="showframe">BCA</a></li>
-        <li><a href="SQL" target="showframe">SQL</a></li>
-        <li>Temp_1</li>
-        <li>Temp_2</li>
-        <li>Temp_3</li>
-        <li>Temp_4</li>
-    </ul>
 
+<div class="nav">
+    <a href="home" target="showframe">Home</a>
+    <a href="BCA" target="showframe">BCA</a>
+    <a href="SQL" target="showframe">SQL</a>
+    <a href="Deploy" target="showframe">Deploy</a>
 </div>
 </body>
 </html>
