@@ -13,7 +13,7 @@ sheet_links = "links"
 
 @app.route('/base')
 def base():
-    return render_template('base.html')
+    return render_template('show.html')
 
 
 @app.route('/home')

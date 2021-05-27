@@ -1,119 +1,44 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
 
-
-    <style>
-        a:link {
-            color: black;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: skyblue;
-            text-decoration: none;
-        }
-
-        #head {
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            height: 80px;
-            background-color: bisque;
-            width: 100%
-        }
-
-        #head ul {
-            list-style: none;
-            height: 50px;
-            width: 100%;
-        }
-
-        #head ul li {
-            float: left;
-            width: 150px;
-            text-align: center;
-            font-size: 18px;
-            height: 50px;
-            line-height: 50px;
-        }
-
-
-        #left {
-            float: left;
-            position: fixed;
-            top: 80px;
-            left: 10px;
-            width: 10%;
-        }
-
-
-        #left ul li {
-            margin-left: 20px;
-            width: 150px;
-            font-size: 18px;
-            height: 50px;
-            list-style: None;
-        }
-
-        #right {
-            float: left;
-            margin-left: 10%;
-            margin-top:80px;
-            width: 90%;
-        }
-
-
-        {% block style %}
-
-        {% endblock %}
-    </style>
+    <title>{% block title %}
+        title
+    {% endblock %}}</title>
 </head>
+
+<style>
+    {% block style %}
+    {% endblock %}
+
+#left{
+    position: fixed;
+    top:0px;
+    lef:0px;
+    width: 15%;
+    float: left;
+}
+
+#right{
+    float: left;
+    margin-top: 0px;
+    margin-left: 15%;
+    background-color: aliceblue;
+    width: 85%;
+}
+</style>
 
 <body>
 
-<div id="head">
-
-    <ul>
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('BCA') }}">BCA</a></li>
-        <li>Deploy</li>
-        <li>CAM</li>
-        <li><a href="{{ url_for('SQL') }}">SQL</a></li>
-        <li>Create Branch</li>
-        <li>temp_1</li>
-        <li>temp_2</li>
-        <li>temp_3</li>
-    </ul>
-</div>
-
-
 <div id="left">
     {% block left %}
-        <ul>
-            <li>Home</li>
-            <li>BCA</li>
-            <li>Deploy</li>
-            <li>CAM</li>
-            <li>SQL</li>
-            <li>Create Branch</li>
-            <li>temp_1</li>
-            <li>temp_2</li>
-            <li>temp_3</li>
-        </ul>
     {% endblock %}
 </div>
-
 
 <div id="right">
     {% block right %}
     {% endblock %}
 </div>
-
-
 </body>
-
 </html>

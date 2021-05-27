@@ -2,7 +2,6 @@
 
 from flask import *
 from read import *
-from SQL_Dct import *
 
 filename = r"doc/release.xlsx"
 sheet_BCA = "BCA"
@@ -12,7 +11,17 @@ sheet_links = "links"
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route('/')
+def base():
+    return render_template('show.html')
+
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/home')
 def home():
     # 发布计划
     plan_info = read_doc(filename=filename, sheetname=sheet_plan, max_line=8)
@@ -30,11 +39,5 @@ def BCA():
     return render_template("BCA.html", BC_info=BC_info)
 
 
-@app.route('/SQL')
-def SQL():
-    SQLDCT = SQLD
-    return render_template("SQL.html", SQLDCT=SQLDCT)
-
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+if __name__ == '__main__':
+    app.run(debug=True)

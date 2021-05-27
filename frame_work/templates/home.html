@@ -1,7 +1,16 @@
-{% extends "base.html" %}
+{% extends "Base.html" %}
+
+{% block title %}
+    Home page
+{% endblock %}
 
 {% block style %}
+    ul li{
+    line-height:200%;
+    list-style:none}
 {% endblock %}
+
+
 
 
 {% block left %}
@@ -15,9 +24,11 @@
 {% endblock %}
 
 
+
+
 {% block right %}
     <div style="margin-left: 50px">
-        <div>
+        <div div>
             <h3 id="plan_table">发布计划</h3>
             <table border="1" cellspacing="0" cellpadding="5">
                 {% for i in range(plan_info|length) %}
@@ -62,7 +73,7 @@
                     <ul>
                         <h3>{{ i }}</h3>
                         {% for j in links[i] %}
-                            <li style="list-style:none; line-height: 200%;"><a href="{{ links[i][j] }}" target="_blank">{{ j }}</a></li>
+                            <li><a href="{{ links[i][j] }}" target="_blank">{{ j }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
