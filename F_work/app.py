@@ -25,14 +25,16 @@ def home():
 
 @app.route('/BCA')
 def BCA():
-    return render_template("BCA.html")
-
+    # BC
+    BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
+    return render_template("BCA.html", BC_info=BC_info)
 
 
 @app.route('/SQL')
 def SQL():
-    SQLDCT=SQLD
-    return render_template("SQL.html",SQLDCT=SQLDCT)
+    SQLDCT = SQLD
+    return render_template("SQL.html", SQLDCT=SQLDCT)
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
