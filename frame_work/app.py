@@ -37,7 +37,8 @@ def home():
 def BCA():
     # BC
     BC_info = read_doc(filename=filename, sheetname=sheet_BCA)
-    return render_template("BCA.html", BC_info=BC_info)
+    SQLBCA = SQL_BCA
+    return render_template("BCA.html", BC_info=BC_info,SQLBCA=SQLBCA)
 
 
 @app.route('/SQL')
