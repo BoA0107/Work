@@ -2,9 +2,9 @@
 
 
 {% block style %}
-.left_pan ul li{
-    list-style:none
-    }
+    ul{
+    line-height:200%;
+    list-style:none}
 {% endblock %}
 
 
@@ -24,7 +24,8 @@
 
 
 {% block right %}
-     <h3 id="BC_info">职级对照</h3>
+    <div id='right'>
+        <h3 id="BC_info">职级对照</h3>
         <table class="c" border="1" cellspacing="0" cellpadding="5">
             {% for i in range(Level_Info|length) %}
                 {% if i==0 %}
@@ -42,5 +43,5 @@
                 {% endif %}
             {% endfor %}
         </table>
-
+    </div>
 {% endblock %}

@@ -6,8 +6,8 @@
 
 {% block style %}
     #index{
-    line-height:200%;}
-
+    line-height:200%;
+    list-style:none}}
     .c {margin-left:50px}
 {% endblock %}
 
@@ -21,14 +21,21 @@
                 <li><a href="#查找BC">查找BC</a></li>
                 <li><a href="#核对执照">核对执照</a></li>
                 <li><a href="#终止合同">终止合同</a></li>
-                <li><a href="#调整渠道">调整渠道</a></li>
+                <li><a href="#调整渠道">调整渠道<span style="color: red"> *</span></a></li>
+                <li><a href="#收稻签约">收稻签约<span style="color: red"> *</span></a></li>
+                <ol>
+                    <li><a href="#初始状态">初始状态</a></li>
+                    <li><a href="#注册收稻">注册收稻</a></li>
+                    <li><a href="#签约成功">签约成功</a></li>
+                </ol>
+                <li><a href="#BDL调整">BDL调整<span style="color: red"> *</span></a></li>
             </ol>
         </li>
         <li><a href="#BCA_SQL">BCA_SQL</a>
             <ol>
                 <li><a href="#调整职级">调整职级</a></li>
                 <li><a href="#新疆BC">新疆BC</a></li>
-                <li></li>
+                <li><a href="#收稻签约相关">收稻签约相关</a></li>
             </ol>
         </li>
         <li><a href="#BC_info">BCA账号-UAT</a></li>
@@ -38,34 +45,219 @@
 
 
 {% block right %}
-    <div style="margin-left: 50px;line-height: 150%">
+    <div style="margin-left: 50px;line-height: 200%">
 
         <h3 id="BC_Create">BCA测试账号设置</h3>
         <div class="c">
-            <h4 id='查找BC'>查找BC</h4>
+            <h3 id='查找BC'>1. 查找BC</h3>
             SAM --> 高级搜索 --> 选择定 Activity Status 和 Career Level进行搜索<br>
             <span style="color:red">推荐：1. Activity Status为A状态；2. Career Level 75-85</span><br>
             <img src="{{ url_for('static',filename='BCA_01.png') }}" width=80%>
-            <h4 id='核对执照'>核对执照</h4>
-            <h4 id='终止合同'>终止合同</h4>
-            <h4 id='调整渠道'>调整渠道</h4>
-        </div>
 
+            <br>
+            <hr>
+            <br>
+            <h4 id='核对执照'>2. 核对执照</h4>
+            <p>
+                1. BC workspace --> Business Director License Info 可以看到改BC名下所有执照 --> 点击查看执照具体信息<br>
+                2. 打开国家企业信用信息公示系统<a href="http://www.gsxt.gov.cn/corp-query-homepage.html">
+                http://www.gsxt.gov.cn/corp-query-homepage.html</a>查看该执行状态。
+            </p>
+            <img src="{{ url_for('static',filename='BCA_02.png') }}" width=80%>
+            <img src="{{ url_for('static',filename='BCA_03.png') }}" width=80%>
+            <img src="{{ url_for('static',filename='BCA_04.png') }}" width=80%>
+
+            <br>
+            <hr>
+            <br>
+
+            <h3 id='终止合同'>3. 终止合同</h3>
+            <p>
+                1. BC workspace --> Business Director License terminated by others<br>
+                2. 选择要终止的执照，"执照有效截至日期"设置为当天以前的日期，"选择备注""备注（其他）"随意选择、填写，提交案例。<br>
+                3. 该案例需要二次审批。<br>
+                4. 在My workspace --> request job: "Job Type" == CCM ; Job Category == CCM BDL Expiration Work; Select
+                Job(s) == BDLExpirationBuildWorkJob。
+                Job Run Time设置为"执照有效截至日期" --> 点击"Submit".<br>
+                5. 可在"Job Status"界面查看job执行情况（Begin Date需早于Job Run Time时间）。<br>
+                6. Job执行完后，可返回BC workspace的"Contact History"界面查看（会生成"Agreement terminated by BDL
+                expired"案例并且状态为Completed）
+            </p>
+            <img src="{{ url_for('static',filename='BCA_05.png') }}" width=60%>
+            <img src="{{ url_for('static',filename='BCA_06.png') }}" width=60%>
+            <img src="{{ url_for('static',filename='BCA_07.png') }}" width=60%>
+            <img src="{{ url_for('static',filename='BCA_08.png') }}" width=60%>
+            <img src="{{ url_for('static',filename='BCA_09.png') }}" width=60%>
+            <img src="{{ url_for('static',filename='BCA_10.png') }}" width=60%>
+
+
+            <br>
+            <hr>
+            <br>
+
+
+            <h3 id='调整渠道'>4. 调整渠道<span style="color: red"> *</span></h3>
+            <p>
+                BC workspace --> Open License Request Change --> 选择角色提交案例即可。<br>
+                <span style="color: red">如果需要的角色是"小微企业自有"或"直销员"，操作到此即可；如果需要的角色是"小微企业代办"需要后续操作</span>
+            </p>
+            <img src="{{ url_for('static',filename='BCA_11.png') }}" width=80%>
+
+            <br>
+            <hr>
+            <br>
+            <h3 id='收稻签约'>5. 收稻签约<span style="color: red"> *</span></h3>
+            <code>
+                ----ebizfoawscnuat/consultants<br>
+
+                select top 10 * from cn.CCM_VendorLicenseNameList<br>
+
+                select top 10 * from cn.CCM_ShouDaoVendorLicenseResult<br>
+
+                select top 10 * from cn.CCM_BPWorkShouDaoVendorLicenseResultSync<br>
+            </code>
+
+
+            <div id='初始状态'>
+                <h4>5.1. 初始状态</h4>
+                朱凤（contact ID：20003900805）为例，执照已终止，已选择"小微企业代办"<br>
+                直销员：1；收稻代办：2；收稻自有：3<br>
+
+                <table cellpadding="5" cellspacing="0" border="1" style="padding-bottom: 5px">
+                    <tr>
+                        <td>CCM_VendorLicenseNameList</td>
+                        <td>有数据且"VendorLicenseType=2"</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_ShouDaoVendorLicenseResult</td>
+                        <td>无数据</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_BPWorkShouDaoRegUsers</td>
+                        <td>无数据</td>
+                    </tr>
+                </table>
+                <br>
+                <img src="{{ url_for('static',filename='BCA_12.png') }}" width=40%>
+                <br>
+            </div>
+            <div id="注册收稻">
+                <h4>5.2. 注册收稻</h4>
+                如下图设置并执行Request Job，执行后再次查询数据表
+                <br>
+                <img src="{{ url_for('static',filename='BCA_13.png') }}" width=40%>
+                <br>
+                <table cellpadding="5" cellspacing="0" border="1">
+                    <tr>
+                        <td>CCM_VendorLicenseNameList</td>
+                        <td>有数据且"VendorLicenseType=2"</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_ShouDaoVendorLicenseResult</td>
+                        <td>有数据且status=1</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_BPWorkShouDaoRegUsers</td>
+                        <td>有数据且StatusID=3</td>
+                    </tr>
+                </table>
+                <br>
+
+                <img src="{{ url_for('static',filename='BCA_14.png') }}" width=40%>
+                <br>
+            </div>
+            <div id="签约成功">
+                <h4>5.3. 签约成功</h4>
+                <p>执行SQL,将cn.CCM_ShouDaoVendorLicenseResult表中status更新为2</p>
+                <code>
+                    update cn.CCM_ShouDaoVendorLicenseResult set StatusID=2
+                    where contactid = 20003900805
+                </code>
+                <br>
+                最终各表结果应如下：
+                <br>
+                <table cellpadding="5" cellspacing="0" border="1">
+                    <tr>
+                        <td>CCM_VendorLicenseNameList</td>
+                        <td>有数据且"VendorLicenseType=2"</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_ShouDaoVendorLicenseResult</td>
+                        <td>有数据且status=2</td>
+                    </tr>
+                    <tr>
+                        <td>cn.CCM_BPWorkShouDaoRegUsers</td>
+                        <td>有数据且StatusID=3</td>
+                    </tr>
+                </table>
+                <br>
+                <img src="{{ url_for('static',filename='BCA_15.png') }}" width=40%>
+                <br>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <h3 id='BDL调整'>6. BDL调整<span style="color: red"> *</span></h3>
+            <p>
+                1.根据BC执照编号在cn.BDA_BusinessDirectorLicense表中找到其BDLID<br>
+                2.在cn.BDA_BusinessDirectorLicenseExtn表中把VendorLicenses设置为1<br>
+                <code>
+                    ----查找对应BDLID<br>
+                    select * from cn.BDA_BusinessDirectorLicense where GovLicenceNumber='91110101MA003NQE6L'<br>
+                    ----更新BDLID<br>
+                    update cn.BDA_BusinessDirectorLicenseExtn set VendorLicense=1 where
+                    BDLID='00AE27F6-3D61-4E8D-A918-3EC032CC06EF'
+                </code>
+            </p>
+        </div>
+        <br>
         {#<div style="clear:both"></div>#}
         <hr>
-
+        <br>
 
         <h3 id='BCA_SQL'>BCA SQL</h3>
         <div class="c">
             <h4 id='调整职级'>1. 调整职级</h4>
             <p>----修改OE的职级的SP</p>
             <code>{{ SQLBCA.LevelUpdate }}</code>
+
+
             <h4 id='新疆BC'>2. 新疆BC</h4>
             <h5>需要BC账号在OE，FO数据库都存在</h5>
             <p>----ebizoeawscnuat/contacts</p>
             <code>{{ SQLBCA.xinjiangren_OE }}</code>
             <p>----ebizfoawscnuat/consultants</p>
             <code>{{ SQLBCA.xinjiangren_FO }}</code>
+
+            <h4 id="收稻签约相关">3. 收稻签约相关</h4>
+            <p>----ebizfoawscnuat/consultants</p>
+            <code>
+                ----3张BCA表看状态
+                <br>
+                select * from cn.CCM_VendorLicenseNameList where ContactID=20003387213
+                <br>
+                select * from cn.CCM_BPWorkShouDaoRegUsers where ContactID=20003387213
+                <br>
+                select * from cn.CCM_ShouDaoVendorLicenseResult where ContactID=20003387213
+                <br>
+                ----更新BC收稻签约状态为成功
+                <br>
+                update cn.CCM_ShouDaoVendorLicenseResult set StatusID=2 where ContactID=20003387213
+                <br>
+                ----查询BC名下的执照编号
+                <br>
+                select * from cn.BDA_BusinessDirectorLicenseExtn where ContactID=20003387213
+                <br>
+                ----根据执照编号查询BDLID<br>
+                select * from cn.BDA_BusinessDirectorLicense where GovLicenceNumber='91110101MA003NQE6L'
+                <br>
+                ----将执照类型改为收稻代办
+                <br>
+                update cn.BDA_BusinessDirectorLicenseExtn set VendorLicense=1 where
+                BDLID='00AE27F6-3D61-4E8D-A918-3EC032CC06EF'
+            </code>
+
+
         </div>
 
 
