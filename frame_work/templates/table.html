@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block style %}
+.left_pan ul li{
+    list-style:none
+    }
+{% endblock %}
+
+
+
+
+{% block left %}
+    <div class="left_pan"></div>
+    <ul>
+        <li><a href="#BC_info">职级对照</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+{% endblock %}
+
+
+
+{% block right %}
+     <h3 id="BC_info">职级对照</h3>
+        <table class="c" border="1" cellspacing="0" cellpadding="5">
+            {% for i in range(Level_Info|length) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(Level_Info[i]|length) %}
+                            <th>{{ Level_Info[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(Level_Info[i]|length) %}
+                            <td>{{ Level_Info[i][j] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+{% endblock %}
