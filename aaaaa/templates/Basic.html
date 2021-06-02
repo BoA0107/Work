@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Basic</title>
+
+
+    <style>
+        #left {
+            float: left;
+            position: fixed;
+            width: 15%;
+            {#margin-left: 10px;#}
+        }
+
+        #right {
+            float: left;
+            margin-left: 15%;
+            width: 85%;
+        }
+
+
+        {% block style %}
+        {% endblock %}
+    </style>
 </head>
 <body>
+
+<div id="left">
+    {% block left %}
+    {% endblock %}
+</div>
+
+<div id="right">
+    {% block right %}
+    {% endblock %}
+</div>
+
 
 </body>
 </html>
