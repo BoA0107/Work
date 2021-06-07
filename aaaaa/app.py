@@ -27,7 +27,8 @@ def home():
     release = read_doc(filename=filename, sheetname=sheet_release_plan, max_line=8)
     links = read_doc(filename=filename, sheetname=sheet_links)
     links_dct = make_dct(links)
-    return render_template('home.html', release=release, links=links_dct)
+    level_info = read_doc(filename=filename, sheetname=sheet_Level_Info)
+    return render_template('home.html', release=release, links=links_dct,level_info=level_info)
 
 
 @app.route('/BCA')
@@ -46,4 +47,4 @@ def CAM():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)

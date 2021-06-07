@@ -1,27 +1,9 @@
 {% extends "Basic.html" %}
 
 {% block style %}
-    li{
-    list-style: none;
-    line-height:200%;
-    }
 
 
-    a{
-    display: block;
-    text-decoration: none;
-    font-size:20px;
-    color:black;
-    }
 
-    a:hover {
-    color: red;
-    }
-
-    h3{
-    height:40px;
-    line-height:40px;
-    }
 {% endblock %}
 
 
@@ -33,8 +15,8 @@
     <ul>
         <li><a href="#发布计划">发布计划</a></li>
         <li><a href="#常用链接">常用链接</a></li>
-        <li><a href=""></a></li>
-        <li><a href=""></a></li>
+        <li><a href="#info">备份信息</a></li>
+        <li><a href="#level_info">职级对应信息</a></li>
         <li><a href=""></a></li>
 
     </ul>
@@ -76,12 +58,14 @@
                     {% endif %}
                 {% endfor %}
             </table>
+
         </div>
 
-        <br>
+
         <br>
         <hr>
         <br>
+
 
         <div id="常用链接">
             <h3>常用链接</h3>
@@ -96,6 +80,83 @@
                 </div>
             {% endfor %}
         </div>
+        <div style="clear: both"></div>
+        <br>
+        <hr>
+        <br>
+
+        <div id='info'>
+            <h3>备份信息</h3>
+            <div style=" float:left">
+                00030$00030bB<br>
+                7426983826Tao!<br>
+                oaWQ6uNaAlegV6M2siw7Ja56wGJ0<br>
+            </div>
+
+            <div style="margin-left:50px; float: left">
+                foapp Dlguc65o<br>
+                foapp Blguw62o<br>
+                foapp Twf45w62o<br>
+            </div>
+
+            <div style="margin-left: 50px; float: left">
+                特殊change参考<br>
+                UAT:CHG0045109<br>
+                PROD:CHG0045111<br>
+            </div>
+
+            <div style="margin-left: 50px; float: left">
+                PROD BC: 000000000063 (ywms_2019/职级90)
+            </div>
+        </div>
+        <div style="clear: both"></div>
+        <br>
+        <hr>
+        <br>
+
+        <div id="level_info">
+            <h3>职级对应信息</h3>
+            <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+                {% for i in range(0,29) %}
+                    {% if i==0 %}
+                        <tr>
+                            {% for j in range(level_info[i]|length) %}
+                                <th>{{ level_info[i][j] }}</th>
+                            {% endfor %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            {% for j in range(level_info[i]|length) %}
+                                <td>{{ level_info[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+                {% for i in range(level_info|length) %}
+                    {% if i==0 %}
+                        <tr>
+                            {% for j in range(level_info[i]|length) %}
+                                <th>{{ level_info[i][j] }}</th>
+                            {% endfor %}
+                        </tr>
+                    {% elif i>28 %}
+                        <tr>
+                            {% for j in range(level_info[i]|length) %}
+                                <td>{{ level_info[i][j] }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+
+        <div style="clear: both"></div>
+
+        <br>
+        <hr>
+        <br>
 
 
     </div>

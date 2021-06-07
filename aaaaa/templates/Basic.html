@@ -10,7 +10,7 @@
             float: left;
             position: fixed;
             width: 15%;
-            {#margin-left: 10px;#}
+        {#margin-left: 10px;#}
         }
 
         #right {
@@ -19,6 +19,37 @@
             width: 85%;
         }
 
+        table th {
+            background-color: darkgray;
+            color: black;
+        }
+
+        tr:nth-child(odd) {
+            background-color: lightgray;
+        }
+
+        {#home#}
+        li {
+            list-style:none;
+            line-height: 200%;
+        }
+
+
+        a {
+            display: block;
+            text-decoration: none;
+            font-size: 20px;
+            color: black;
+        }
+
+        a:hover {
+            color: darkgray;
+        }
+
+        h3 {
+            height: 40px;
+            line-height: 40px;
+        }
 
         {% block style %}
         {% endblock %}

@@ -1,10 +1,100 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-deploy page
-</body>
-</html>
+{% extends "Basic.html" %}
+
+{% block left %}
+    <ul>
+        <li><a href="#answers">建change答案</a></li>
+        <li><a href="#SQL">发布相关SQL</a></li>
+        <ul>
+            <ol><a href="#DB_restore">DB restore</a></ol>
+            <ol><a href="#DB_backup">DB backup</a></ol>
+            <ol><a href="#Broker_Service">Broker Service</a></ol>
+            <ol></ol>
+        </ul>
+    </ul>
+{% endblock %}
+
+
+
+{% block right %}
+    <div id='answers'>
+        <h2>建Change答案</h2>
+        <h3>UAT</h3>
+        <ol>
+            <li>Yes. and the method of rollback</li>
+            <li>No</li>
+            <li>No</li>
+        </ol>
+        <h4>PROD</h4>
+        <ol>
+            <li>Negligible risk to the business</li>
+            <li>No downtime is anticipated</li>
+            <li>Yes, and it has been tested in production.</li>
+            <li>No</li>
+            <li>No</li>
+            <li>No</li>
+        </ol>
+    </div>
+    <hr>
+    <div id="SQL">
+        <h2>发布SQL</h2>
+        fix下encryption
+        <div id="DB_restore">
+            <h3>DB restore</h3>
+            <h4>FO restore</h4>
+            <p>
+                use admindb<br>
+                go<br>
+                exec usp_SAM_restore <br>
+                @SAMBackup_FilePath='\\svc-cn-prod.mkaws.com\files\usr\sql\samawscnbackup\sqlbackup\QA\sam_awscn\SAM_24mon\Consultants_SAM_24mon_1-of-1_cmp.bak',<br>
+                @Destination_DBName = 'Consultants'
+            </p>
+            <h4>DM restore</h4>
+            <p>
+                use admindb<br>
+                go<br>
+                exec usp_SAM_restore <br>
+                @SAMBackup_FilePath='\\svc-cn-prod.mkaws.com\files\usr\sql\samawscnbackup\sqlbackup\QA\sam_awscn\SAM_24mon\Intelligence_FO_SAM_24mon_1-of-1_cmp.bak',
+                <br>
+                @Destination_DBName = 'Intelligence_FO'
+            </p>
+        </div>
+        <hr>
+        <div id="DB_backup">
+            <h3>DB backup</h3>
+            <h4>FO backup</h4>
+            <p>
+                use admindb<br>
+                go<br>
+                exec usp_SAM_fullbackup @dbname ='Consultants', @source_dbname = 'Consultants', @period_size
+                ='SAM_24mon', @Region ='AWSCN'
+            </p>
+            <h4>DM backup</h4>
+            <p>
+                use admindb<br>
+                go<br>
+                exec usp_SAM_fullbackup @dbname ='Intelligence_FO', @source_dbname = 'Intelligence_FO', @period_size
+                ='SAM_24mon', @Region ='AWSCN'
+            </p>
+        </div>
+        <hr>
+        <div id="Broker_Service">
+            <h3>Broker Service (batch)</h3>
+            <h4>检查service是否开启</h4>
+            <p>
+                use master<br>
+                go<br>
+                select is_broker_enabled, *
+                from sys.databases db
+                where db.name in ('Consultants', 'CRM')
+            </p>
+
+            <h4>开启service</h4>
+            <p>
+                exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'Consultants'<br>
+                exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'CRM'<br>
+            </p>
+        </div>
+    </div>
+
+
+{% endblock %}
