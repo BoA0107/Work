@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>show</title>
+</head>
+<frameset rows="100px,*">
+    <frame src="{{ url_for("index") }}">
+    <frame src="{{ url_for("home") }}" name="showframe">
+</frameset>
