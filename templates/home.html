@@ -2,9 +2,103 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>home</title>
+    <title>Title</title>
+
+    <style>
+        #left {
+            position: fixed;
+            width: 10%
+        }
+
+        #right {
+            float: left;
+            margin-left: 10%;
+            width: 90%
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 30px;
+            color: #050505;
+        }
+
+        a:hover {
+            background-color: beige;
+            color: #ff8500;
+        }
+    </style>
 </head>
 <body>
-home page
+
+<div id="left">
+    <ul>
+        <li><a href="#plan_info">发布计划</a></li>
+        <li><a href="#links">常用链接</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</div>
+
+<div id="right">
+    <div id="plan_info">
+        <h3>发布信息</h3>
+        <table border="1" cellspacing="0" cellpadding="5">
+            {% for i in range(plan_info|length) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(plan_info[i]|length) %}
+                            <th>{{ plan_info[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% elif i%2==1 %}
+                    <tr>
+                        {% for j in range(plan_info[i]|length) %}
+                            {% if  j!=5 %}
+                                <td rowspan="2">{{ plan_info[i][j] }}</td>
+                            {% else %}
+                                <td>{{ plan_info[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(plan_info[i]|length) %}
+                            {% if  j!=5 %}
+                            {% else %}
+                                <td>{{ plan_info[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <hr>
+
+    <div id="links">
+        <h3>常用链接</h3>
+        {% for i in links %}
+            <div style="float: left">
+                <ul>
+                    <h3>{{ i }}</h3>
+                    {% for j in links[i] %}
+                        <li><a href="{{ links[i][j] }}" target="_blank">{{ j }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
 </body>
 </html>
