@@ -78,7 +78,6 @@
                     </tr>
                 {% endif %}
             {% endfor %}
-
         </table>
 
     </div>
@@ -88,7 +87,7 @@
     <div id="links">
         <h3>常用链接</h3>
         {% for i in links %}
-            <div style="float: left">
+            <div style="float: left;margin-left: 20px">
                 <ul>
                     <h3>{{ i }}</h3>
                     {% for j in links[i] %}
