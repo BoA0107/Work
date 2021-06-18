@@ -39,15 +39,16 @@
     <ul>
         <li><a href="#plan_info">发布计划</a></li>
         <li><a href="#links">常用链接</a></li>
-        <li></li>
+        <li><a href="#career_level">职级对照</a></li>
         <li></li>
         <li></li>
     </ul>
 
 </div>
 
-<div id="right">
-    <div id="plan_info">
+<div id="right" style="background-color: cornsilk;">
+    {#    发布信息#}
+    <div id="plan_info" style="margin-left: 50px">
         <h3>发布信息</h3>
         <table border="1" cellspacing="0" cellpadding="5">
             {% for i in range(plan_info|length) %}
@@ -83,8 +84,8 @@
     </div>
 
     <hr>
-
-    <div id="links">
+    {#常用链接#}
+    <div id="links" style="margin-left: 50px">
         <h3>常用链接</h3>
         {% for i in links %}
             <div style="float: left;margin-left: 20px">
@@ -97,6 +98,35 @@
             </div>
         {% endfor %}
     </div>
+    <div style="clear: both"></div>
+
+    <hr>
+
+    {#职级信息#}
+    <div id="career_level" style="margin-left: 50px">
+        <h3>职级对应</h3>
+        <table border="1" cellspacing="0" cellpadding="5">
+            {% for i in range(career_level|length) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(career_level[i]|length) %}
+                            <th>{{ career_level[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(career_level[i]|length) %}
+                            <td>{{ career_level[i][j] }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+
+    </div>
+
+
 </div>
 
 </body>

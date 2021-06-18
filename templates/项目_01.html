@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>项目_01</title>
+
+    <style>
+        #left {
+            position: fixed;
+            width: 10%
+        }
+
+        #right {
+            float: left;
+            margin-left: 10%;
+            width: 90%
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 30px;
+            color: #050505;
+        }
+
+        a:hover {
+            background-color: beige;
+            color: #ff8500;
+        }
+    </style>
+</head>
+<body>
+
+<div id="left">
+    <ul>
+        <li><a href="#order">下单流程</a></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="right" style="background-color: cornsilk;">
+    <div id="order" style="margin-left: 50px">
+        <h3>下单支付</h3>
+        <ul>
+            <li>数据：ebizoeawscnuat --> BASKET</li>
+            <li>
+                --拿orderid<br>
+                select * from BaseOrderTracker with (nolock) where PurchaserContactID = 20003964929 order by orderdate
+                desc<br>
+            </li>
+            <li>
+                --拿cashpaymentID<br>
+                select * from BaseOrderCashPayment with (nolock) where orderid =
+                '63AC9A55-12E5-42A0-A86E-DE14D83277C2'<br>
+            </li>
+            <li>
+                --假支付<br>
+                exec uspCompleteOrderPayment<br>
+                @OrderId = '63AC9A55-12E5-42A0-A86E-DE14D83277C2',<br>
+                @PaymentId = '1333302570'<br>
+            </li>
+        </ul>
+    </div>
+
+    <hr>
+
+
+</div>
+
+
+</body>
+</html>
