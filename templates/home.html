@@ -37,8 +37,8 @@
 
 <div id="left">
     <ul>
-        <li><a href="#plan_info">发布计划</a></li>
         <li><a href="#links">常用链接</a></li>
+        <li><a href="#plan_info">发布计划</a></li>
         <li><a href="#career_level">职级对照</a></li>
         <li></li>
         <li></li>
@@ -47,6 +47,25 @@
 </div>
 
 <div id="right" style="background-color: cornsilk;">
+    <div id="links" style="margin-left: 50px">
+        <h3>常用链接</h3>
+        {% for i in links %}
+            <div style="float: left;margin-left: 20px">
+                <ul>
+                    <h3>{{ i }}</h3>
+                    {% for j in links[i] %}
+                        <li><a href="{{ links[i][j] }}" target="_blank">{{ j }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div style="clear: both"></div>
+
+    <hr>
+
+
     {#    发布信息#}
     <div id="plan_info" style="margin-left: 50px">
         <h3>发布信息</h3>
@@ -85,22 +104,7 @@
 
     <hr>
     {#常用链接#}
-    <div id="links" style="margin-left: 50px">
-        <h3>常用链接</h3>
-        {% for i in links %}
-            <div style="float: left;margin-left: 20px">
-                <ul>
-                    <h3>{{ i }}</h3>
-                    {% for j in links[i] %}
-                        <li><a href="{{ links[i][j] }}" target="_blank">{{ j }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endfor %}
-    </div>
-    <div style="clear: both"></div>
 
-    <hr>
 
     {#职级信息#}
     <div id="career_level" style="margin-left: 50px">

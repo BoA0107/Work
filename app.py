@@ -12,7 +12,12 @@ sheet_career = r"level_info"
 sheet_SQL = r"SQL"
 sheet_BCA_data = r"BCA_data"
 
-plan_info = read_doc(filename=filename, sheetname=sheet_deploy, max_line=8)
+
+#SQL
+filename_SQL = r"doc/SQL.xlsx"
+sheet_SQL_batch = r'batch_SQL'
+
+
 
 
 @app.route('/')
@@ -42,7 +47,9 @@ def home():
 
 @app.route('/SQL')
 def SQL():
-    return render_template('SQL.html')
+    batch_data= read_doc(filename=filename_SQL,sheetname=sheet_SQL_batch)
+
+    return render_template('SQL.html', batch_data=batch_data)
 
 
 @app.route('/deploy')
