@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>项目_01</title>
+
+    <style>
+        #left {
+            position: fixed;
+            width: 10%
+        }
+
+        #right {
+            float: left;
+            margin-left: 10%;
+            width: 90%
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 30px;
+            color: #050505;
+        }
+
+        a:hover {
+            background-color: beige;
+            color: #ff8500;
+        }
+    </style>
+</head>
+<body>
+
+<div id="left">
+    <ul>
+        <li><a href="#data">数据准备</a></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<div id="right" style="background-color: cornsilk;">
+    <div id="data" style="margin-left: 50px">
+        <h3>数据准备</h3>
+        <table border="1" cellspacing="0" cellpadding="5">
+            {% for i in range(BCA_data|length) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(BCA_data[i]|length) %}
+                            <th>{{ BCA_data[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(BCA_data[i]|length) %}
+                            {% if BCA_data[i][j] == None %}
+                                <td></td>
+                            {% else %}
+                                <td>{{ BCA_data[i][j] }}</td>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+
+        <hr>
+
+
+    </div>
+
+
+</body>
+</html>

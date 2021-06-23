@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL</title>
+
+    <style>
+        #left {
+            position: fixed;
+            width: 10%
+        }
+
+        #right {
+            float: left;
+            margin-left: 10%;
+            width: 90%
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 30px;
+            color: #050505;
+        }
+
+        a:hover {
+            background-color: beige;
+            color: #ff8500;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div id="left">
+    <ul>
+        <li><a href="#batch">Batch相关</a></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+</div>
+
+<div id="right" style="background-color: cornsilk;">
+
+    <div id="batch" style="margin-left: 50px">
+        <h3>Batch相关</h3>
+        <table cellspacing="0" cellpadding="5">
+            {% for i in range(batch_data|length) %}
+                <tr>
+                    {% for j in range(batch_data[i]|length) %}
+                        {% if batch_data[i][j] != None %}
+                            <td>{{ batch_data[i][j] }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+</div>
+
+
+</body>
+</html>
