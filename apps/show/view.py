@@ -4,7 +4,7 @@ show_bp = Blueprint('show', __name__)
 
 @show_bp.route('/')
 def show():
-    return render_template('../templates/show.html')
+    return 'show page'
 
 
 # @app.route('/')
