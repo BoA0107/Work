@@ -26,12 +26,12 @@ def show():
 
 
 @app.route('/index')
-def index():
+def index_1():
     return render_template('index.html')
 
 
 @app.route('/home')
-def home():
+def home_1():
     # plan_info
     plan_info = read_doc(filename=filename, sheetname=sheet_deploy, max_line=16)
 
