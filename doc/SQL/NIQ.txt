@@ -1,0 +1,10 @@
+SELECT top 10 cp.ConsultantNumber,cp.ContactID,nu.BeginDate
+FROM ConsultantCareerLevel ccl (nolock)
+inner join dbo.NIQUnits nu WITH (NOLOCK)
+on ccl.ConsultantID = nu.NIQID
+inner join ConsultantProfile cp (nolock)
+on ccl.ConsultantID = cp.ContactID
+WHERE ccl.Date = '2016-10-01' and ccl.LevelID = 500
+AND BeginDate < '2016-10-01'
+AND  (EndDate >= '2016-10-01'
+OR   EndDate IS NULL)

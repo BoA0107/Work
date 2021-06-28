@@ -1,0 +1,6 @@
+SELECT BatchID,BatchTypeID,StatusID,InsertDateTime,LastUpdateDateTime,DMProcessingComplete
+FROM [Consultants].[dbo].[BPBatchHeader] with (nolock)
+where BatchTypeID in (21,22,23,24,25,26,27,28,29,30,31,33,34,32,35,36,37,38,39,40,41,42,43,44,45,46,47,50,51)
+and InsertDateTime>'2020-06-07'
+order by BatchTypeID
+desc

@@ -1,0 +1,12 @@
+SELECT top 10 cp.ConsultantNumber,cp.ContactID,ccl.LevelID,dtsd.SeniorDirectorID
+FROM ConsultantCareerLevel ccl (nolock)
+inner join ConsultantProfile cp (nolock)
+on ccl.ConsultantID = cp.ContactID
+inner join DirectorUnits du WITH (NOLOCK)
+on ccl.ConsultantID = du.DirectorID
+inner join DirectorToSeniorDirector dtsd (nolock)
+on du.DirectorID = dtsd.DirectorID and dtsd.Date = ccl.Date
+WHERE ccl.Date = '2016-10-01' AND ccl.LevelID between 400 and 499
+AND du.DebutDate < '2016-10-01'
+AND (du.TerminationDate >= '2016-10-01'
+OR   du.TerminationDate IS NULL)

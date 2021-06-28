@@ -1,0 +1,6 @@
+SELECT [DirectSellerID]
+FROM [Consultants].[cn].[ConsultantProfileExtn] with (nolock)
+where ContactID in (
+SELECT TOP 10 [ConsultantID]
+FROM [Consultants].[dbo].[ConsultantToDIQ] with (nolock)
+where Date='2020-04-01' and ConsultantID<>DIQID)

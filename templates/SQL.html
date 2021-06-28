@@ -16,16 +16,14 @@
             width: 90%
         }
 
-        ul li {
-            list-style: none;
-        }
 
         a {
             text-decoration: none;
-            font-size: 20px;
             line-height: 30px;
             color: #050505;
+            margin-left: 30px;
         }
+
 
         a:hover {
             background-color: beige;
@@ -36,36 +34,162 @@
 <body>
 
 
-
 <div id="left">
-    <ul>
-        <li><a href="#batch">Batch相关</a></li>
-        <li></li>
-        <li></li>
-    </ul>
+    {#    <ul>#}
+    {#        <li><a href="#batch">Batch相关</a></li>#}
+    {#        <ul>#}
+    {#            <li><a href="#DIQ">DIQ</a></li>#}
+    {#            <li><a href="#DIR">DIR</a></li>#}
+    {#            <li><a href="#NIQ">NIQ</a></li>#}
+    {#            <li><a href="#NSD">NSD</a></li>#}
+    {#            <li><a href="#new_BC">new_BC</a></li>#}
+    {#            <li><a href="#change_DIQ">change_DIQ</a></li>#}
+    {#            <li><a href="#search_batch">search_batch</a></li>#}
+    {#        </ul>#}
+    {#        <li></li>#}
+    {#        <li></li>#}
+    {#    </ul>#}
 
+    <details open>
+        <summary>Batch相关</summary>
+        <a href="#DIQ">DIQ</a><br>
+        <a href="#DIR">DIR</a><br>
+        <a href="#NIQ">NIQ</a><br>
+        <a href="#NSD">NSD</a><br>
+        <a href="#new_BC">new_BC</a><br>
+        <a href="#change_DIQ">change_DIQ</a><br>
+        <a href="#search_batch">search_batch</a><br>
+    </details>
+    <hr>
+    <details open>
+        <summary>发布相关</summary>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+    </details>
+    <hr>
+    <details open>
+        <summary>BCA相关</summary>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+    </details>
+    <hr>
+    <details open>
+        <summary>其他</summary>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+        <a href="#">aaaa</a><br>
+    </details>
 </div>
 
-<div id="right" style="background-color: cornsilk;">
+<div id="right" style="background-color: cornsilk">
 
-    <div id="batch" style="margin-left: 50px">
+    {##batch相关#}
+    <div id='batch' style="margin-left: 50px">
         <h3>Batch相关</h3>
-        <table cellspacing="0" cellpadding="5">
-            {% for i in range(batch_data|length) %}
-                <tr>
-                    {% for j in range(batch_data[i]|length) %}
-                        {% if batch_data[i][j] != None %}
-                            <td>{{ batch_data[i][j] }}</td>
-                        {% else %}
-                            <td></td>
-                        {% endif %}
+        <div id='DIQ'>
+            <h4>DIQ</h4>
+            <code>
+                {% for i in range (f_DIQ|length) %}
+                    {{ f_DIQ[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
 
-                    {% endfor %}
-                </tr>
-            {% endfor %}
-        </table>
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='DIR'>
+            <h4>DIR</h4>
+            <code>
+                {% for i in range (f_DIR|length) %}
+                    {{ f_DIR[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='NIQ'>
+            <h4>NIQ</h4>
+            <code>
+                {% for i in range (f_NIQ|length) %}
+                    {{ f_NIQ[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
+
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='NSD'>
+            <h4>NSD</h4>
+            <code>
+                {% for i in range (f_NSD|length) %}
+                    {{ f_NSD[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
+
+
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='new_BC'>
+            <h4>新BC</h4>
+            <code>
+                {% for i in range (f_new_BC|length) %}
+                    {{ f_new_BC[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
+
+
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='change_DIQ'>
+            <h4>change DIQ</h4>
+            <code>
+                {% for i in range (f_change_diq|length) %}
+                    {{ f_change_diq[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
+
+
+        <br>
+        <hr>
+        <br>
+
+
+        <div id='search_batch'>
+            <h4>查找Batch</h4>
+            <code>
+                {% for i in range (f_batch|length) %}
+                    {{ f_batch[i] }}<br>
+                {% endfor %}
+            </code>
+        </div>
     </div>
-
+    <br>
+    <hr>
+    <br>
 
 </div>
 

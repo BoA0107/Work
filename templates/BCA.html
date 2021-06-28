@@ -37,30 +37,30 @@
 
 <div id="left">
     <ul>
-        <li><a href="#data">数据准备</a></li>
+        <li><a href="#UAT_BC">UAT BC</a></li>
         <li></li>
         <li></li>
     </ul>
 </div>
 
 <div id="right" style="background-color: cornsilk;">
-    <div id="data" style="margin-left: 50px">
-        <h3>数据准备</h3>
-        <table border="1" cellspacing="0" cellpadding="5">
-            {% for i in range(BCA_data|length) %}
+    <div id="UAT_BC" style="margin-left: 50px">
+        <h3>UAT_BC</h3>
+        <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+            {% for i in range(UAT_BC|length//2) %}
                 {% if i==0 %}
                     <tr>
-                        {% for j in range(BCA_data[i]|length) %}
-                            <th>{{ BCA_data[i][j] }}</th>
+                        {% for j in range(UAT_BC[i]|length) %}
+                            <th>{{ UAT_BC[i][j] }}</th>
                         {% endfor %}
                     </tr>
                 {% else %}
                     <tr>
-                        {% for j in range(BCA_data[i]|length) %}
-                            {% if BCA_data[i][j] == None %}
+                        {% for j in range(UAT_BC[i]|length) %}
+                            {% if UAT_BC[i][j] == None %}
                                 <td></td>
                             {% else %}
-                                <td>{{ BCA_data[i][j] }}</td>
+                                <td>{{ UAT_BC[i][j] }}</td>
                             {% endif %}
 
                         {% endfor %}
@@ -69,6 +69,28 @@
             {% endfor %}
         </table>
 
+        <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+            {% for i in range(UAT_BC|length//2) %}
+                {% if i==0 %}
+                    <tr>
+                        {% for j in range(UAT_BC[i]|length) %}
+                            <th>{{ UAT_BC[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(UAT_BC[i]|length) %}
+                            {% if UAT_BC[i][j] == None %}
+                                <td></td>
+                            {% else %}
+                                <td>{{ UAT_BC[i][j] }}</td>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
 
         <hr>
 
