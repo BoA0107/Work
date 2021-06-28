@@ -1,0 +1,13 @@
+---FO restore
+use admindb
+go
+exec usp_SAM_restore
+@SAMBackup_FilePath='\\svc-cn-prod.mkaws.com\files\usr\sql\samawscnbackup\sqlbackup\QA\sam_awscn\SAM_24mon\Consultants_SAM_24mon_1-of-1_cmp.bak',
+@Destination_DBName = 'Consultants'
+
+---DM restore
+use admindb
+go
+exec usp_SAM_restore
+@SAMBackup_FilePath='\\svc-cn-prod.mkaws.com\files\usr\sql\samawscnbackup\sqlbackup\QA\sam_awscn\SAM_24mon\Intelligence_FO_SAM_24mon_1-of-1_cmp.bak',
+@Destination_DBName = 'Intelligence_FO'

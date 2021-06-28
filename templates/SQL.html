@@ -63,10 +63,9 @@
     <hr>
     <details open>
         <summary>发布相关</summary>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
+        <a href="#dbrestore">dbrestore</a><br>
+        <a href="#dbbackup">dbbackup</a><br>
+        <a href="#service">service broker</a><br>
     </details>
     <hr>
     <details open>
@@ -93,11 +92,11 @@
         <h3>Batch相关</h3>
         <div id='DIQ'>
             <h4>DIQ</h4>
-            <code>
+            <p>
                 {% for i in range (f_DIQ|length) %}
                     {{ f_DIQ[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
         <br>
@@ -107,11 +106,11 @@
 
         <div id='DIR'>
             <h4>DIR</h4>
-            <code>
+            <p>
                 {% for i in range (f_DIR|length) %}
                     {{ f_DIR[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
         <br>
@@ -121,11 +120,11 @@
 
         <div id='NIQ'>
             <h4>NIQ</h4>
-            <code>
+            <p>
                 {% for i in range (f_NIQ|length) %}
                     {{ f_NIQ[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
         <br>
@@ -135,11 +134,11 @@
 
         <div id='NSD'>
             <h4>NSD</h4>
-            <code>
+            <p>
                 {% for i in range (f_NSD|length) %}
                     {{ f_NSD[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
 
@@ -150,11 +149,11 @@
 
         <div id='new_BC'>
             <h4>新BC</h4>
-            <code>
+            <p>
                 {% for i in range (f_new_BC|length) %}
                     {{ f_new_BC[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
 
@@ -165,11 +164,11 @@
 
         <div id='change_DIQ'>
             <h4>change DIQ</h4>
-            <code>
+            <p>
                 {% for i in range (f_change_diq|length) %}
                     {{ f_change_diq[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
         </div>
 
 
@@ -180,11 +179,44 @@
 
         <div id='search_batch'>
             <h4>查找Batch</h4>
-            <code>
+            <p>
                 {% for i in range (f_batch|length) %}
                     {{ f_batch[i] }}<br>
                 {% endfor %}
-            </code>
+            </p>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id='dbrestore'>
+            <h4>dbrestore</h4>
+            <p>
+                {% for i in range (dbrestore|length) %}
+                    {{ dbrestore[i] }}<br>
+                {% endfor %}
+            </p>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id='dbbackup'>
+            <h4>dbbackup</h4>
+            <p>
+                {% for i in range (dbbackup|length) %}
+                    {{ dbbackup[i] }}<br>
+                {% endfor %}
+            </p>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div id='service'>
+            <h4>service broker</h4>
+            <p>
+                {% for i in range (service|length) %}
+                    {{ service[i] }}<br>
+                {% endfor %}
+            </p>
         </div>
     </div>
     <br>

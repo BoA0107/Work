@@ -1,6 +1,7 @@
-# -*- coding:utf-8 -*-
+# -*- coding: UTF-8 -*-
 
 from openpyxl import load_workbook
+
 
 # read excel
 def read_doc(filename, sheetname, max_line=0):
@@ -52,8 +53,6 @@ def read_txt(filename):
     f = []
     with open(filename) as file:
         x = file.readlines()
-        for i in range (len(x)):
+        for i in range(len(x)):
             f.append(x[i].strip('\n'))
     return f
-
-

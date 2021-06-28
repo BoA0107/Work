@@ -1,7 +1,10 @@
+# -*- coding: UTF-8 -*-
+
 # all xlsx
 F_home = r'doc/home.xlsx'
 F_BCA = r'doc/BCA.xlsx'
 F_SQL = r'doc/SQL.xlsx'
+
 
 # sheet for home
 Home_links = r'links'
@@ -22,3 +25,6 @@ NSD = r'doc/SQL/NSD.txt'
 batch = r'doc/SQL/batch.txt'
 new_BC = r'doc/SQL/new_BC.txt'
 change_diq = r'doc/SQL/change_diq.txt'
+DBrestore = r'doc/SQL/dbrestore.txt'
+DBbackup = r'doc/SQL/dbbackup.txt'
+ServiceBroker = r'doc/SQL/service.txt'

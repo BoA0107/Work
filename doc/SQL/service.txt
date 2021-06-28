@@ -1,0 +1,8 @@
+---check service
+use master
+go
+select is_broker_enabled, * from sys.databases db where db.name in ('Consultants', 'CRM')
+
+---enable service
+exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'Consultants'
+exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'CRM'

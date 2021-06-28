@@ -1,0 +1,9 @@
+---FO backup
+use admindb
+go
+exec usp_SAM_fullbackup @dbname ='Consultants', @source_dbname = 'Consultants', @period_size ='SAM_24mon', @Region ='AWSCN'
+
+---DM backup
+use admindb
+go
+exec usp_SAM_fullbackup @dbname ='Intelligence_FO', @source_dbname = 'Intelligence_FO', @period_size ='SAM_24mon', @Region ='AWSCN'
