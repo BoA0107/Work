@@ -8,3 +8,8 @@ f_NSD = read_txt(NSD)
 f_batch = read_txt(batch)
 f_new_BC = read_txt(new_BC)
 f_change_diq = read_txt(change_diq)
+
+
+dbrestore = read_txt(DBrestore)
+dbbackup = read_txt(DBbackup)
+service = read_txt(ServiceBroker)

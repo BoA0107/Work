@@ -3,8 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <title>deploy</title>
+    <style>
+        #left {
+            position: fixed;
+            width: 10%
+        }
+
+        #right {
+            float: left;
+            margin-left: 10%;
+            width: 90%
+        }
+
+        ul li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 20px;
+            line-height: 30px;
+            color: #050505;
+        }
+
+        a:hover {
+            background-color: beige;
+            color: #ff8500;
+        }
+    </style>
 </head>
 <body>
-deploy page
+
+<div id="left">
+    <ul>
+        <li><a href="#answer">建change答案</a></li>
+        <li><a href="#b_version">branch版本信息</a></li>
+        <li></li>
+    </ul>
+
+</div>
+
+<div id="right" style="background-color: cornsilk;">
+    {#建change答案#}
+    <div id="answer" style="margin-left: 50px">
+        <h3>change答案</h3>
+        <table border="1" cellspacing="0" cellpadding="5">
+            {% for i in range(answer|length) %}
+                <tr>
+                    {% for j in range(answer[i]|length) %}
+                        {% if  answer[i][j]!= None %}
+                            <td>{{ answer[i][j] }}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+
+    {#    <div id="b_version" style="margin-left: 50px">#}
+    {#        <h3>branch版本信息</h3>#}
+    {#        <table border="1" cellspacing="0" cellpadding="5">#}
+    {#            {% for i in range(b_version|length) %}#}
+    {#                {% if i == 0 %}#}
+    {#                    <tr>#}
+    {#                        {% for j in range(b_version[i]|length) %}#}
+    {#                            <th>{{ b_version[i][j] }}</th>#}
+    {#                        {% endfor %}#}
+    {#                    </tr>#}
+    {#                {% elif i%2 ==1 %}#}
+    {#                    <tr>#}
+    {#                        {% for j in range(b_version[i]|length) %}#}
+    {#                            {% if  j==0 %}#}
+    {#                                <td rowspan="2">{{ b_version[i][j] }}</td>#}
+    {#                            {% else %}#}
+    {#                                <td>{{ b_version[i][j] }}</td>#}
+    {#                            {% endif %}#}
+    {#                        {% endfor %}#}
+    {#                    </tr>#}
+    {#                {% else %}#}
+    {#                    <tr>#}
+    {#                        {% for j in range(b_version[i]|length) %}#}
+    {#                            {% if  j==0 %}#}
+    {#                            {% else %}#}
+    {#                                <td>{{ b_version[i][j] }}</td>#}
+    {#                            {% endif %}#}
+    {#                        {% endfor %}#}
+    {#                    </tr>#}
+    {#                {% endif %}#}
+    {#            {% endfor %}#}
+    {#        </table>#}
+    {#    </div>#}
+    {#    <hr>#}
+<hr>
+    <div id="b_version" style="margin-left: 50px">
+        <h3>branch版本信息</h3>
+        <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+            {% for i in range(b_version|length//2+1) %}
+                {% if i == 0 %}
+                    <tr>
+                        {% for j in range(b_version[i]|length) %}
+                            <th>{{ b_version[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% elif i%2 ==1 %}
+                    <tr>
+                        {% for j in range(b_version[i]|length) %}
+                            {% if  j==0 %}
+                                <td rowspan="2">{{ b_version[i][j] }}</td>
+                            {% else %}
+                                <td>{{ b_version[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% else %}
+                    <tr>
+                        {% for j in range(b_version[i]|length) %}
+                            {% if  j==0 %}
+                            {% else %}
+                                <td>{{ b_version[i][j] }}</td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <table border="1" cellspacing="0" cellpadding="5" style="float: left">
+            {% for i in range(b_version|length) %}
+                {% if i == 0 %}
+                    <tr>
+                        {% for j in range(b_version[i]|length) %}
+                            <th>{{ b_version[i][j] }}</th>
+                        {% endfor %}
+                    </tr>
+                {% elif i>=  b_version|length//2+1 %}
+                    {% if i%2 ==1 %}
+                        <tr>
+                            {% for j in range(b_version[i]|length) %}
+                                {% if  j==0 %}
+                                    <td rowspan="2">{{ b_version[i][j] }}</td>
+                                {% else %}
+                                    <td>{{ b_version[i][j] }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            {% for j in range(b_version[i]|length) %}
+                                {% if  j==0 %}
+                                {% else %}
+                                    <td>{{ b_version[i][j] }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </table>
+
+    </div>
+
+
+</div>
 </body>
 </html>

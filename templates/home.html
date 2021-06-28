@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>home</title>
 
     <style>
         #left {
@@ -28,8 +28,7 @@
         }
 
         a:hover {
-            background-color: beige;
-            color: #ff8500;
+            background-color: cadetblue;
         }
     </style>
 </head>
@@ -38,15 +37,16 @@
 <div id="left">
     <ul>
         <li><a href="#links">常用链接</a></li>
+        <li><a href="#others">其他信息</a></li>
         <li><a href="#plan_info">发布计划</a></li>
         <li><a href="#career_level">职级对照</a></li>
-        <li></li>
         <li></li>
     </ul>
 
 </div>
 
 <div id="right" style="background-color: cornsilk;">
+    {#常用links#}
     <div id="links" style="margin-left: 50px">
         <h3>常用链接</h3>
         {% for i in links %}
@@ -60,13 +60,36 @@
             </div>
         {% endfor %}
     </div>
-
+    {#清除格式#}
     <div style="clear: both"></div>
 
     <hr>
 
+    {#other#}
+    <div id="others" style="margin-left: 50px">
+        <h3>其他信息</h3>
+        <div style="float: left;margin-left: 50px">
+            {% for i in range(others|length//3) %}
+                {{ others[i] }}<br>
+            {% endfor %}
+        </div>
+        <div style="float: left;margin-left: 50px">
+            {% for i in range(others|length//3,others|length//3*2) %}
+                {{ others[i] }}<br>
+            {% endfor %}
+        </div>
+        <div style="float: left;margin-left: 50px">
+            {% for i in range(others|length//3*2,others|length) %}
+                {{ others[i] }}<br>
+            {% endfor %}
+        </div>
+    </div>
+    {#清除格式#}
+    <div style="clear: both"></div>
 
-    {#    发布信息#}
+    <hr>
+
+    {#发布信息#}
     <div id="plan_info" style="margin-left: 50px">
         <h3>发布信息</h3>
         <table border="1" cellspacing="0" cellpadding="5">
@@ -104,8 +127,6 @@
 
     <hr>
 
-
-
     {#职级信息#}
     <div id="career_level" style="margin-left: 50px">
         <h3>职级对应</h3>
@@ -126,8 +147,6 @@
                 {% endif %}
             {% endfor %}
         </table>
-
-
     </div>
 
 

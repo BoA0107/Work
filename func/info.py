@@ -4,18 +4,21 @@
 F_home = r'doc/home.xlsx'
 F_BCA = r'doc/BCA.xlsx'
 F_SQL = r'doc/SQL.xlsx'
-
+F_deploy = r'doc/deploy.xlsx'
 
 # sheet for home
 Home_links = r'links'
 Home_deploy_plan = r'deploy_plan'
 Home_level_info = r'level_info'
 Home_normal_info = r'normal_info'
-
-
+Home_others = r'others'
 
 # sheet for BCA
 BCA_UAT_BC = r'UAT_BC'
+
+# deploy
+answer = r'answer'
+branch_version = r'b_version'
 
 # SQL
 DIQ = r'doc/SQL/DIQ.txt'

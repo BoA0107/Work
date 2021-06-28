@@ -47,7 +47,7 @@
     <div id="UAT_BC" style="margin-left: 50px">
         <h3>UAT_BC</h3>
         <table border="1" cellspacing="0" cellpadding="5" style="float: left">
-            {% for i in range(UAT_BC|length//2) %}
+            {% for i in range(UAT_BC|length//2+1) %}
                 {% if i==0 %}
                     <tr>
                         {% for j in range(UAT_BC[i]|length) %}
@@ -62,7 +62,6 @@
                             {% else %}
                                 <td>{{ UAT_BC[i][j] }}</td>
                             {% endif %}
-
                         {% endfor %}
                     </tr>
                 {% endif %}
@@ -70,14 +69,14 @@
         </table>
 
         <table border="1" cellspacing="0" cellpadding="5" style="float: left">
-            {% for i in range(UAT_BC|length//2) %}
+            {% for i in range(UAT_BC|length) %}
                 {% if i==0 %}
                     <tr>
                         {% for j in range(UAT_BC[i]|length) %}
                             <th>{{ UAT_BC[i][j] }}</th>
                         {% endfor %}
                     </tr>
-                {% else %}
+                {% elif i>=UAT_BC|length//2+1  %}
                     <tr>
                         {% for j in range(UAT_BC[i]|length) %}
                             {% if UAT_BC[i][j] == None %}

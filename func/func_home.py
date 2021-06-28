@@ -11,3 +11,6 @@ links_dct = make_dct(links)
 
 # career_level
 career_level = read_doc(filename=F_home, sheetname=Home_level_info)
+
+# other
+others = read_singel(filename=F_home, sheetname=Home_others)

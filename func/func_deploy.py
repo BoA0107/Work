@@ -1,6 +1,5 @@
 from read_doc import *
 from func.info import *
 
-dbrestore = read_txt(DBrestore)
-dbbackup = read_txt(DBbackup)
-service = read_txt(ServiceBroker)
+answer = read_doc(filename=F_deploy, sheetname=answer)
+b_version =read_doc(filename=F_deploy, sheetname=branch_version)

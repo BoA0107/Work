@@ -56,3 +56,15 @@ def read_txt(filename):
         for i in range(len(x)):
             f.append(x[i].strip('\n'))
     return f
+
+
+#read single excel
+
+def read_singel(filename,sheetname):
+    wb = load_workbook(filename)
+    sheet = wb.get_sheet_by_name(sheetname)
+    content=[]
+    x = sheet.max_row
+    for i in range(1, x + 1):
+        content.append(sheet.cell(i, 1).value)
+    return content
