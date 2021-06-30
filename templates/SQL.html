@@ -70,7 +70,7 @@
     <hr>
     <details open>
         <summary>BCA相关</summary>
-        <a href="#">aaaa</a><br>
+        <a href="#BCA_01">BCA相关</a><br>
         <a href="#">aaaa</a><br>
         <a href="#">aaaa</a><br>
         <a href="#">aaaa</a><br>
@@ -222,7 +222,14 @@
     <br>
     <hr>
     <br>
-
+    <div id="BCA_01" style="margin-left: 50px">
+        <h3>收稻代办相关SQL</h3>
+        <p>
+            {% for i in range (BCA_01|length) %}
+                {{ BCA_01[i] }}<br>
+            {% endfor %}
+        </p>
+    </div>
 </div>
 
 

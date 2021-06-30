@@ -15,6 +15,7 @@ Home_others = r'others'
 
 # sheet for BCA
 BCA_UAT_BC = r'UAT_BC'
+BCA_2 = r'BCA_02'
 
 # deploy
 answer = r'answer'
@@ -31,3 +32,4 @@ change_diq = r'doc/SQL/change_diq.txt'
 DBrestore = r'doc/SQL/dbrestore.txt'
 DBbackup = r'doc/SQL/dbbackup.txt'
 ServiceBroker = r'doc/SQL/service.txt'
+BCA_SQL = r'doc/SQL/BCA_1.txt'

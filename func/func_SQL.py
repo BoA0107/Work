@@ -13,3 +13,6 @@ f_change_diq = read_txt(change_diq)
 dbrestore = read_txt(DBrestore)
 dbbackup = read_txt(DBbackup)
 service = read_txt(ServiceBroker)
+
+
+BCA_01 = read_txt(BCA_SQL)

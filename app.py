@@ -24,19 +24,19 @@ def home():
 
 @app.route('/BCA')
 def BCA():
-    return render_template('BCA.html', UAT_BC=UAT_BC)
+    return render_template('BCA.html', UAT_BC=UAT_BC, BCA_02=BCA_02, BCA_01=BCA_01)
 
 
 @app.route('/SQL')
 def SQL():
     return render_template('SQL.html', f_DIQ=f_DIQ, f_DIR=f_DIR, f_NIQ=f_NIQ, f_NSD=f_NSD, f_batch=f_batch,
                            f_new_BC=f_new_BC, f_change_diq=f_change_diq, dbrestore=dbrestore, dbbackup=dbbackup,
-                           service=service)
+                           service=service,BCA_01=BCA_01)
 
 
 @app.route('/deploy')
 def deploy():
-    return render_template('deploy.html',answer=answer,b_version=b_version)
+    return render_template('deploy.html', answer=answer, b_version=b_version)
 
 
 if __name__ == "__main__":

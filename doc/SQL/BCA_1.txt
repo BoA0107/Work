@@ -1,0 +1,30 @@
+--- contactID, consultantID, directsellID转换
+select top 10 * from cn.ConsultantProfileExtn
+select top 10 * from ConsultantProfile
+
+
+--- BCA数据相关
+select top 10 * from cn.CCM_VendorLicenseNameList
+where contactid = 20003963718
+
+select * from cn.CCM_BPWorkShouDaoRegUsers
+where contactid = 20003963718
+
+select * from cn.CCM_ShouDaoVendorLicenseResult
+where contactid = 20003963718
+
+---收稻代办状态更新
+update cn.CCM_ShouDaoVendorLicenseResult set StatusID = 2
+where contactid = 20003963718
+
+
+---执照信息相关
+select * from cn.BDA_BusinessDirectorLicense where GovLicenceNumber='91310115MA1H7MM37U'
+select top 10  * from cn.BDA_BusinessDirectorLicenseExtn where ContactID=20003963718
+
+
+---更新执照类型
+update cn.BDA_BusinessDirectorLicenseExtn set VendorLicense=1 where BDLID='00AE27F6-3D61-4E8D-A918-3EC032CC06EF'
+
+---插入数据
+insert into cn.BDA_BusinessDirectorLicenseExtn values ('31011500-1075-032E-EEEE-EEEEEEEEEEEE',1,20003963718,NULL,NULL,NULL,NULL,NULL)
