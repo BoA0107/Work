@@ -31,7 +31,7 @@ def BCA():
 def SQL():
     return render_template('SQL.html', f_DIQ=f_DIQ, f_DIR=f_DIR, f_NIQ=f_NIQ, f_NSD=f_NSD, f_batch=f_batch,
                            f_new_BC=f_new_BC, f_change_diq=f_change_diq, dbrestore=dbrestore, dbbackup=dbbackup,
-                           service=service,BCA_01=BCA_01)
+                           service=service,BCA_01=BCA_01,temp_SQL1=temp_SQL1)
 
 
 @app.route('/deploy')

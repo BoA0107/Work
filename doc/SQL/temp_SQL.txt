@@ -1,0 +1,51 @@
+---发DB前drop service
+drop service [CN/Consultants/OrderAdjustmentMessageReceive]
+
+
+---查看process month
+SELECT TOP 1000 [SubsidiaryID],[CurrentProcessingMonth],[BatchID] FROM [Consultants].[dbo].[CurrentProcessingMonth]
+
+
+
+---- ContactID, ConsultantNumber, DirectSellerID联查
+select top 10 a.LastName+a.FirstName name, a.ConsultantNumber, a.ContactID, b.DirectSellerID  from dbo.ConsultantProfile a inner join cn.ConsultantProfileExtn b
+on
+a.ContactID =b.ContactID and 
+a.ContactID =  20002864083
+--a.ConsultantNumber = 000000257
+--b.DirectSellerID = '310000000005'
+
+
+---- ContactID, ConsultantNumber
+select top 10 * from dbo.ConsultantProfile
+where 
+ContactID = 20002864079   
+--ConsultantNumber = 000000144
+
+
+---- ContactID, DirectSellerID
+select top 10 * from cn.ConsultantProfileExtn
+where 
+ContactID = 20002864083 
+--DirectSellerID = '310000000005'
+
+
+
+-------------------订单相关------------------------------------------
+--数据库ebizoeawscnqa --> Basket 库
+
+--拿orderid
+select * from BaseOrderTracker with (nolock) 
+where PurchaserContactID = 20003964929 
+order by orderdate desc
+
+
+--拿cashpaymentID
+select * from BaseOrderCashPayment with (nolock) 
+where orderid = '63AC9A55-12E5-42A0-A86E-DE14D83277C2'
+
+
+--假支付
+exec uspCompleteOrderPayment
+@OrderId = '63AC9A55-12E5-42A0-A86E-DE14D83277C2',
+@PaymentId = '1333302570'

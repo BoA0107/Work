@@ -6,3 +6,8 @@ select is_broker_enabled, * from sys.databases db where db.name in ('Consultants
 ---enable service
 exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'Consultants'
 exec admindb.util.usp_APP_Enable_Service_Broker_SAME_ID 'CRM'
+
+
+---disable service
+exec admindb.util.usp_disable_broker 'Consultants'
+exec admindb.util.usp_disable_broker 'CRM'

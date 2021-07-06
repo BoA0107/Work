@@ -71,18 +71,15 @@
     <details open>
         <summary>BCA相关</summary>
         <a href="#BCA_01">BCA相关</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
     </details>
     <hr>
-    <details open>
-        <summary>其他</summary>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-        <a href="#">aaaa</a><br>
-    </details>
+        <details open>
+            <summary>其他</summary>
+            <a href="#temp_SQL">temp SQL</a><br>
+{#            <a href="#">aaaa</a><br>#}
+{#            <a href="#">aaaa</a><br>#}
+{#            <a href="#">aaaa</a><br>#}
+        </details>
 </div>
 
 <div id="right" style="background-color: cornsilk">
@@ -227,6 +224,18 @@
         <p>
             {% for i in range (BCA_01|length) %}
                 {{ BCA_01[i] }}<br>
+            {% endfor %}
+        </p>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+    <div id="temp_SQL" style="margin-left: 50px">
+        <h3>temp SQL</h3>
+        <p>
+            {% for i in range (temp_SQL1|length) %}
+                {{ temp_SQL1[i] }}<br>
             {% endfor %}
         </p>
     </div>

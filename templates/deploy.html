@@ -15,9 +15,10 @@
             width: 90%
         }
 
-        ul li {
-            list-style: none;
-        }
+        {#ul li {#}
+        {#    list-style: none;#}
+        {
+        #}#}
 
         a {
             text-decoration: none;
@@ -36,14 +37,33 @@
 
 <div id="left">
     <ul>
-        <li><a href="#answer">建change答案</a></li>
-        <li><a href="#b_version">branch版本信息</a></li>
-        <li></li>
+        <li style="list-style: none"><a href="#answer">建change答案</a></li>
+        <li style="list-style: none"><a href="#b_version">branch版本信息</a></li>
+        <hr>
+        <li style="list-style: none">
+            <details>
+                <summary>CAM</summary>
+                <ol>
+                    <li>Account Code Setup</li>
+                    <li>New General Ledger Field</li>
+                    <li>Import Batches</li>
+                    <li>Create Batch</li>
+                    <li>Write Off Batches</li>
+                    <li>Write Off Reinstate</li>
+                    <li>Delete Batch</li>
+                </ol>
+            </details>
+        </li>
     </ul>
 
 </div>
 
 <div id="right" style="background-color: cornsilk;">
+
+    <h3 style="margin-left: 50px">fix下encryption</h3>
+    <br>
+    <hr>
+    <br>
     {#建change答案#}
     <div id="answer" style="margin-left: 50px">
         <h3>change答案</h3>
@@ -97,7 +117,7 @@
     {#        </table>#}
     {#    </div>#}
     {#    <hr>#}
-<hr>
+    <hr>
     <div id="b_version" style="margin-left: 50px">
         <h3>branch版本信息</h3>
         <table border="1" cellspacing="0" cellpadding="5" style="float: left">
@@ -163,10 +183,17 @@
                 {% endif %}
             {% endfor %}
         </table>
+    </div>
+    <div style="clear: both"></div>
+    <hr>
+
+    <div id='CAM'>
 
     </div>
 
 
 </div>
+
+
 </body>
 </html>
